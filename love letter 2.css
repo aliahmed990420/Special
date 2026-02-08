@@ -6,9 +6,10 @@
   border-bottom-right-radius: 6px;
   margin-left: auto;
   margin-right: auto;
-  top: 150px;
+  margin: 3rem auto;
   background-color: #d9534f; /* Warm romantic red */
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease;
 }
 
 .front {
@@ -239,7 +240,11 @@ body {
 }
 
 .envlope-wrapper {
-  height: 380px;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 1rem 2rem;
 }
 
 .reset {
@@ -294,4 +299,37 @@ body {
   background-color: #ffa4b1;
   transform: scale(1.05);
   box-shadow: 0px 6px 20px rgba(255, 107, 129, 0.7);
+}
+
+/* Responsive tweaks */
+:root {
+  --btn-min-width: 120px;
+}
+
+/* Fluid type for the handwriting font */
+.words.line1 { font-size: clamp(0.7rem, 2.2vw, 0.9rem); }
+.words.line2, .words.line3, .words.line4, .words.line5 {
+  font-size: clamp(0.95rem, 3.2vw, 1.2rem);
+}
+
+@media (max-width: 600px) {
+  #envelope { transform: scale(0.9); transform-origin: center top; margin: 2rem auto; }
+  .reset button { min-width: 100px; padding: 8px; font-size: 13px; }
+  .letter-button { padding: 8px 14px; }
+  .letter { width: 92%; }
+  .hearts { top: 70px; }
+}
+
+@media (max-width: 420px) {
+  #envelope { transform: scale(0.8); }
+  .reset button { min-width: 86px; padding: 7px; font-size: 12px; }
+  .letter-button { padding: 6px 12px; font-size: 14px; }
+  .words { left: 6%; width: 88%; }
+  .heart:before, .heart:after { left: 30px; width: 36px; height: 56px; }
+}
+
+@media (max-width: 320px) {
+  #envelope { transform: scale(0.7); }
+  .words.line1 { width: 36%; }
+  .words.line2, .words.line3, .words.line4, .words.line5 { font-size: 1rem; }
 }
